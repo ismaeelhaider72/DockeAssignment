@@ -1,0 +1,24 @@
+Docker
+version: '1.0'
+services:
+    database:
+        image: mongo:3
+  
+    webnode:
+        image: node:6.9.1
+        ports:
+         - "3000:3000"
+        working_dir: /work
+        volumes:
+         - .:/work
+        environment:
+         - MONGO_IP=db
+         - NODE_ENV=${NODE_ENV}
+        command: node /work/server.js
+
+    test:
+        image: node:6.9.1
+        working_dir: /work
+        volumes:
+         - .:/work
+        command: curl -s http://web:3000
