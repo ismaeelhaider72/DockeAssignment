@@ -1,0 +1,7 @@
+version: '2'
+services:
+ 
+  contain1:
+   image: busybox
+  contain2:
+    image: alpine

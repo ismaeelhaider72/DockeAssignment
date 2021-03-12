@@ -1,0 +1,16 @@
+version: "3"
+services:
+  fluentd:
+    container_name: fluentd
+    image: fluentd
+    volumes:
+    - ./file:/fluentd/log/files/ 
+    - ./configurations:/fluentd/etc/
+    - ./logs:/output/ 
+  
+  file-myapp:
+    container_name: file-myapp
+    image: alpine
+    volumes:
+    - ./file:/app
+    command: [ /bin/sh , -c , "chmod +x /app/app.sh && ./app/app.sh"]
