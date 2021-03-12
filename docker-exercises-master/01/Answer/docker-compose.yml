@@ -24,9 +24,4 @@ services:
          - db
          - web
         image: node:6.9.1
-        working_dir: /work
-        volumes:
-         - ..:/work
-        environment:
-         - NODE_ENV=${NODE_ENV}
-        command: curl -s http://web:3000
+        command: curl web:3000
