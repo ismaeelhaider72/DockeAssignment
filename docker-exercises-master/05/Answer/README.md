@@ -3,10 +3,10 @@ What size image does this Dockerfile create? What size of archive does it create
 
 ####  Answer:
 <pre>
-sudo docker build -t testimsage
-sudo docker images --format "{{.Size}}" testimage
+sudo docker build -t testimsage .
+sudo docker images --format "{{.Size}}" testimsage
 2
-sudo docker save -o test.tar testimage
+sudo docker save -o test.tar testimsage
 
 ls -lh test.tar|awk '{print $5}'
 11k
